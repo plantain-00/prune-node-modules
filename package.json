@@ -1,0 +1,45 @@
+{
+  "name": "prune-node-modules",
+  "version": "1.0.0",
+  "description": "A CLI tool to prune node_modules.",
+  "main": "index.js",
+  "scripts": {
+    "build": "clean-scripts build",
+    "lint": "clean-scripts lint",
+    "test": "clean-scripts test",
+    "fix": "clean-scripts fix",
+    "release": "clean-scripts release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plantain-00/prune-node-modules.git"
+  },
+  "author": "York Yao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plantain-00/prune-node-modules/issues"
+  },
+  "homepage": "https://github.com/plantain-00/prune-node-modules#readme",
+  "devDependencies": {
+    "@commitlint/cli": "5.2.0",
+    "@commitlint/config-angular": "5.1.1",
+    "@types/jasmine": "2.8.2",
+    "@types/minimist": "1.2.0",
+    "@types/node": "8.0.53",
+    "@types/rimraf": "2.0.2",
+    "clean-release": "1.4.0",
+    "clean-scripts": "1.7.0",
+    "jasmine": "2.8.0",
+    "no-unused-export": "1.4.3",
+    "standard": "10.0.3",
+    "tslint": "5.8.0",
+    "typescript": "2.6.2"
+  },
+  "dependencies": {
+    "minimist": "1.2.0",
+    "rimraf": "2.6.2"
+  },
+  "bin": {
+    "prune-node-modules": "bin/prune-node-modules"
+  }
+}
