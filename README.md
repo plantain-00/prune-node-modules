@@ -11,7 +11,7 @@ A CLI tool to prune node_modules.
 
 ## install
 
-`yarn add prune-node-modules -g`
+`yarn global add prune-node-modules`
 
 ## usage
 
