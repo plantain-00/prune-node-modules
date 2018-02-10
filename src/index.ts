@@ -1,7 +1,7 @@
-import * as minimist from 'minimist'
+import minimist from 'minimist'
 import * as fs from 'fs'
 import * as path from 'path'
-import rimraf = require('rimraf')
+import rimraf from 'rimraf'
 import * as packageJson from '../package.json'
 
 let suppressError = false
