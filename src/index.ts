@@ -2,6 +2,7 @@ import minimist from 'minimist'
 import * as fs from 'fs'
 import * as path from 'path'
 import rimraf from 'rimraf'
+import minimatch from 'minimatch'
 import * as packageJson from '../package.json'
 
 let suppressError = false
@@ -80,8 +81,20 @@ const defaultExtensions = [
   '.swp'
 ]
 
-function prune (input: string) {
+let blacklist: string[] = []
+let whitelist: string[] = []
+
+async function prune (input: string) {
+  if (whitelist.some(w => minimatch(input, w))) {
+    return
+  }
   return new Promise<void>(resolve => {
+    if (blacklist.some(b => minimatch(input, b))) {
+      rimraf(input, unlinkError => {
+        resolve()
+      })
+      return
+    }
     fs.stat(input, (statError, stats) => {
       if (statError) {
         resolve()
@@ -134,7 +147,20 @@ async function executeCommandLine () {
 
   suppressError = argv.suppressError
 
-  await Promise.all(argv._.map(f => prune(f)))
+  try {
+    const config = argv.config || 'prune-node-modules.config.js'
+    const configData: ConfigData = require(path.resolve(process.cwd(), config))
+    if (configData.blacklist) {
+      blacklist = configData.blacklist.map(b => path.resolve(process.cwd(), b))
+    }
+    if (configData.whitelist) {
+      whitelist = configData.whitelist.map(w => path.resolve(process.cwd(), w))
+    }
+  } catch (error) {
+    // do nothing
+  }
+
+  await Promise.all(argv._.map(f => prune(path.resolve(process.cwd(), f))))
 }
 
 executeCommandLine().then(() => {
@@ -149,3 +175,8 @@ executeCommandLine().then(() => {
     process.exit(1)
   }
 })
+
+interface ConfigData {
+  whitelist?: string[]
+  blacklist?: string[]
+}

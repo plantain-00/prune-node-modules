@@ -15,4 +15,11 @@ A CLI tool to prune node_modules.
 
 ## usage
 
-run `prune-node-modules ./node_modules`
+run `prune-node-modules ./node_modules` or `prune-node-modules ./node_modules --config prune-node-modules.config.js`
+
+## config
+
+key | type | description
+--- | --- | ---
+blacklist | string[]? | the blacklist files, support glob
+whitelist | string[]? | the whitelist files, support glob
