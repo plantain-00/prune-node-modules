@@ -23,3 +23,15 @@ key | type | description
 --- | --- | ---
 blacklist | string[]? | the blacklist files, support glob
 whitelist | string[]? | the whitelist files, support glob
+
+## change logs
+
+```txt
+// v2
+can only support one target
+blacklist and whitelist are relative to the target directory
+
+// v1
+support multiple targets
+blacklist and whitelist are relative to current working directory
+```

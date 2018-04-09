@@ -147,20 +147,25 @@ async function executeCommandLine () {
 
   suppressError = argv.suppressError
 
+  if (argv._.length !== 1) {
+    throw new Error('need one target path')
+  }
+  const target = path.resolve(process.cwd(), argv._[0])
+
   try {
     const config = argv.config || 'prune-node-modules.config.js'
     const configData: ConfigData = require(path.resolve(process.cwd(), config))
     if (configData.blacklist) {
-      blacklist = configData.blacklist.map(b => path.resolve(process.cwd(), b))
+      blacklist = configData.blacklist.map(b => path.resolve(target, b))
     }
     if (configData.whitelist) {
-      whitelist = configData.whitelist.map(w => path.resolve(process.cwd(), w))
+      whitelist = configData.whitelist.map(w => path.resolve(target, w))
     }
   } catch (error) {
     // do nothing
   }
 
-  await Promise.all(argv._.map(f => prune(path.resolve(process.cwd(), f))))
+  await prune(target)
 }
 
 executeCommandLine().then(() => {

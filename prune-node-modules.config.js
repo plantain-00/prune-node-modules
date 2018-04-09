@@ -1,4 +1,6 @@
 module.exports = {
   blacklist: [],
-  whitelist: []
+  whitelist: [
+    'a.md'
+  ]
 }
