@@ -25,7 +25,7 @@
     "@types/jasmine": "2.8.6",
     "@types/minimatch": "3.0.3",
     "@types/minimist": "1.2.0",
-    "@types/node": "9.6.2",
+    "@types/node": "9.6.5",
     "@types/rimraf": "2.0.2",
     "clean-scripts": "1.7.0",
     "jasmine": "3.1.0",
