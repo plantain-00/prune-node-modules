@@ -7,7 +7,7 @@ import * as packageJson from '../package.json'
 
 let suppressError = false
 
-function showToolVersion () {
+function showToolVersion() {
   console.log(`Version: ${packageJson.version}`)
 }
 
@@ -84,7 +84,8 @@ const defaultExtensions = [
 let blacklist: string[] = []
 let whitelist: string[] = []
 
-async function prune (input: string) {
+// tslint:disable-next-line:cognitive-complexity
+async function prune(input: string) {
   if (whitelist.some(w => minimatch(input, w))) {
     return
   }
@@ -136,7 +137,7 @@ async function prune (input: string) {
   })
 }
 
-async function executeCommandLine () {
+async function executeCommandLine() {
   const argv = minimist(process.argv.slice(2), { '--': true })
 
   const showVersion = argv.v || argv.version
