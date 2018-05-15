@@ -10,6 +10,6 @@ module.exports = {
   ],
   postScript: [
     'cd "[dir]" && yarn --production',
-    '[dir]/bin/prune-node-modules demo --supressError'
+    'node [dir]/dist/index.js demo --supressError'
   ]
 }
