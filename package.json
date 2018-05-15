@@ -27,6 +27,7 @@
     "@types/minimist": "1.2.0",
     "@types/node": "10.0.8",
     "@types/rimraf": "2.0.2",
+    "clean-release": "2.5.0",
     "clean-scripts": "1.8.0",
     "jasmine": "3.1.0",
     "markdownlint-cli": "0.8.1",
@@ -40,7 +41,8 @@
   "dependencies": {
     "minimatch": "3.0.4",
     "minimist": "1.2.0",
-    "rimraf": "2.6.2"
+    "rimraf": "2.6.2",
+    "tslib": "1.9.1"
   },
   "bin": {
     "prune-node-modules": "bin/prune-node-modules"
