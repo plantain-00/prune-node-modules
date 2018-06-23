@@ -25,7 +25,7 @@
     "@types/jasmine": "2.8.8",
     "@types/minimatch": "3.0.3",
     "@types/minimist": "1.2.0",
-    "@types/node": "10.3.3",
+    "@types/node": "10.3.4",
     "@types/rimraf": "2.0.2",
     "clean-release": "2.6.0",
     "clean-scripts": "1.9.2",
@@ -34,7 +34,7 @@
     "no-unused-export": "1.5.1",
     "standard": "11.0.1",
     "tslint": "5.10.0",
-    "tslint-config-standard": "7.0.0",
+    "tslint-config-standard": "7.1.0",
     "tslint-sonarts": "1.7.0",
     "typescript": "2.9.2"
   },
@@ -42,7 +42,7 @@
     "minimatch": "3.0.4",
     "minimist": "1.2.0",
     "rimraf": "2.6.2",
-    "tslib": "1.9.2"
+    "tslib": "1.9.3"
   },
   "bin": {
     "prune-node-modules": "bin/prune-node-modules"
