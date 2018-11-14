@@ -6,6 +6,7 @@
 [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/github/plantain-00/prune-node-modules?branch=master&svg=true)](https://ci.appveyor.com/project/plantain-00/prune-node-modules/branch/master)
 [![npm version](https://badge.fury.io/js/prune-node-modules.svg)](https://badge.fury.io/js/prune-node-modules)
 [![Downloads](https://img.shields.io/npm/dm/prune-node-modules.svg)](https://www.npmjs.com/package/prune-node-modules)
+[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fplantain-00%2Fprune-node-modules%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/prune-node-modules)
 
 A CLI tool to prune node_modules.
 
