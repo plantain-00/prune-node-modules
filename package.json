@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/plantain-00/prune-node-modules#readme",
   "devDependencies": {
-    "@commitlint/cli": "7.5.2",
-    "@commitlint/config-conventional": "7.5.0",
+    "@commitlint/cli": "7.6.1",
+    "@commitlint/config-conventional": "7.6.0",
     "@types/jasmine": "3.3.12",
     "@types/minimatch": "3.0.3",
     "@types/minimist": "1.2.0",
