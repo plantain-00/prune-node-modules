@@ -84,7 +84,6 @@ const defaultExtensions = [
 let blacklist: string[] = []
 let whitelist: string[] = []
 
-// tslint:disable-next-line:cognitive-complexity
 async function prune(input: string) {
   if (whitelist.some(w => minimatch(input, w))) {
     return
