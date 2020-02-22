@@ -25,14 +25,14 @@
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
-    "@types/jasmine": "3.5.4",
+    "@types/jasmine": "3.5.6",
     "@types/minimatch": "3.0.3",
     "@types/minimist": "1.2.0",
-    "@types/node": "13.7.1",
+    "@types/node": "13.7.4",
     "@types/rimraf": "2.0.3",
-    "@typescript-eslint/eslint-plugin": "2.19.2",
-    "@typescript-eslint/parser": "2.19.2",
-    "clean-release": "2.7.0",
+    "@typescript-eslint/eslint-plugin": "2.20.0",
+    "@typescript-eslint/parser": "2.20.0",
+    "clean-release": "2.7.1",
     "clean-scripts": "1.12.1",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
@@ -41,13 +41,13 @@
     "markdownlint-cli": "0.22.0",
     "no-unused-export": "1.10.0",
     "type-coverage": "2.4.0",
-    "typescript": "3.7.5"
+    "typescript": "3.8.2"
   },
   "dependencies": {
     "minimatch": "3.0.4",
     "minimist": "1.2.0",
     "rimraf": "3.0.2",
-    "tslib": "1.10.0"
+    "tslib": "1.11.0"
   },
   "bin": {
     "prune-node-modules": "bin/prune-node-modules"
