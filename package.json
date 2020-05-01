@@ -44,10 +44,10 @@
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "minimatch": "3.0.4",
-    "minimist": "1.2.5",
-    "rimraf": "3.0.2",
-    "tslib": "1.11.1"
+    "minimatch": "3",
+    "minimist": "1",
+    "rimraf": "3",
+    "tslib": "1"
   },
   "bin": {
     "prune-node-modules": "bin/prune-node-modules"
