@@ -5,6 +5,8 @@ import rimraf from 'rimraf'
 import minimatch from 'minimatch'
 import * as packageJson from '../package.json'
 
+import { ConfigData } from './core'
+
 let suppressError = false
 
 function showToolVersion() {
@@ -81,6 +83,18 @@ const defaultExtensions = [
   '.swp'
 ]
 
+function statAsync(file: string) {
+  return new Promise<fs.Stats | undefined>((resolve) => {
+    fs.stat(file, (error, stats) => {
+      if (error) {
+        resolve(undefined)
+      } else {
+        resolve(stats)
+      }
+    })
+  })
+}
+
 let blacklist: string[] = []
 let whitelist: string[] = []
 
@@ -90,7 +104,7 @@ async function prune(input: string) {
   }
   return new Promise<void>(resolve => {
     if (blacklist.some(b => minimatch(input, b))) {
-      rimraf(input, unlinkError => {
+      rimraf(input, () => {
         resolve()
       })
       return
@@ -101,7 +115,7 @@ async function prune(input: string) {
       } else if (stats.isDirectory()) {
         const basename = path.basename(input)
         if (defaultDirectories.some(d => d === basename)) {
-          rimraf(input, unlinkError => {
+          rimraf(input, () => {
             resolve()
           })
         } else {
@@ -112,7 +126,7 @@ async function prune(input: string) {
               const fullPaths = files.map(f => path.resolve(input, f))
               Promise.all(fullPaths.map(p => prune(p))).then(() => {
                 resolve()
-              }, pruneError => {
+              }, () => {
                 resolve()
               })
             }
@@ -123,7 +137,7 @@ async function prune(input: string) {
         const basename = path.basename(input)
         const extensionname = path.extname(input)
         if (defaultFiles.some(f => f === basename) || defaultExtensions.some(e => e === extensionname)) {
-          rimraf(input, unlinkError => {
+          rimraf(input, () => {
             resolve()
           })
         } else {
@@ -153,8 +167,25 @@ async function executeCommandLine() {
   const target = path.resolve(process.cwd(), argv._[0])
 
   try {
-    const config = argv.config || 'prune-node-modules.config.js'
-    const configData: ConfigData = require(path.resolve(process.cwd(), config))
+    let configFilePath: string
+    if (argv.config) {
+      configFilePath = path.resolve(process.cwd(), argv.config)
+    } else {
+      configFilePath = path.resolve(process.cwd(), 'prune-node-modules.config.ts')
+      const stats = await statAsync(configFilePath)
+      if (!stats || !stats.isFile()) {
+        configFilePath = path.resolve(process.cwd(), 'prune-node-modules.config.js')
+      }
+    }
+    if (configFilePath.endsWith('.ts')) {
+      require('ts-node/register/transpile-only')
+    }
+
+    let configData: ConfigData & { default?: ConfigData } = require(configFilePath)
+    if (configData.default) {
+      configData = configData.default
+    }
+    
     if (configData.blacklist) {
       blacklist = configData.blacklist.map(b => path.resolve(target, b))
     }
@@ -180,8 +211,3 @@ executeCommandLine().then(() => {
     process.exit(1)
   }
 })
-
-interface ConfigData {
-  whitelist?: string[]
-  blacklist?: string[]
-}

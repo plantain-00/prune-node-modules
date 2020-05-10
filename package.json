@@ -2,7 +2,8 @@
   "name": "prune-node-modules",
   "version": "2.0.3",
   "description": "A CLI tool to prune node_modules.",
-  "main": "index.js",
+  "main": "dist/core.js",
+  "types": "dist/core.d.ts",
   "scripts": {
     "build": "clean-scripts build",
     "lint": "clean-scripts lint",
@@ -19,7 +20,7 @@
     "url": "https://github.com/plantain-00/prune-node-modules/issues"
   },
   "typeCoverage": {
-    "atLeast": 93
+    "atLeast": 95.37
   },
   "homepage": "https://github.com/plantain-00/prune-node-modules#readme",
   "devDependencies": {
@@ -40,6 +41,7 @@
     "jasmine": "3.5.0",
     "markdownlint-cli": "0.23.0",
     "no-unused-export": "1.10.3",
+    "ts-node": "8.10.1",
     "type-coverage": "2.5.0",
     "typescript": "3.8.3"
   },
