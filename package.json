@@ -20,7 +20,7 @@
     "url": "https://github.com/plantain-00/prune-node-modules/issues"
   },
   "typeCoverage": {
-    "atLeast": 95.37
+    "atLeast": 98.06
   },
   "homepage": "https://github.com/plantain-00/prune-node-modules#readme",
   "devDependencies": {
@@ -40,7 +40,7 @@
     "markdownlint-cli": "0.23.1",
     "no-unused-export": "1.10.3",
     "ts-node": "8.10.2",
-    "type-coverage": "2.7.2",
+    "type-coverage": "2.8.2",
     "typescript": "3.9.5"
   },
   "dependencies": {

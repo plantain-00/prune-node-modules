@@ -13,6 +13,19 @@ function showToolVersion() {
   console.log(`Version: ${packageJson.version}`)
 }
 
+function showHelp() {
+  console.log(`Version ${packageJson.version}
+Syntax:   prune-node-modules [options] [file...]
+Examples: prune-node-modules ./node_modules
+          prune-node-modules ./node_modules --config prune-node-modules.config.js
+          prune-node-modules ./node_modules --config prune-node-modules.config.ts
+Options:
+ -h, --help                                         Print this message.
+ -v, --version                                      Print the version
+ --config                                           Config file
+`)
+}
+
 const defaultFiles = [
   'Makefile',
   'Gulpfile.js',
@@ -151,12 +164,25 @@ async function prune(input: string) {
 }
 
 async function executeCommandLine() {
-  const argv = minimist(process.argv.slice(2), { '--': true })
+  const argv = minimist(process.argv.slice(2), { '--': true }) as unknown as {
+    v?: unknown
+    version?: unknown
+    h?: unknown
+    help?: unknown
+    suppressError: boolean
+    config?: string
+    _: string[]
+  }
 
   const showVersion = argv.v || argv.version
   if (showVersion) {
     showToolVersion()
     return
+  }
+
+  if (argv.h || argv.help) {
+    showHelp()
+    process.exit(0)
   }
 
   suppressError = argv.suppressError

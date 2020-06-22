@@ -18,6 +18,14 @@ A CLI tool to prune node_modules.
 
 run `prune-node-modules ./node_modules` or `prune-node-modules ./node_modules --config prune-node-modules.config.js` or `prune-node-modules ./node_modules --config prune-node-modules.config.ts`
 
+## options
+
+key | description
+--- | ---
+--config | config file
+-h,--help | Print this message.
+-v,--version | Print the version
+
 ## config
 
 key | type | description
