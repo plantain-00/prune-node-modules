@@ -1,6 +1,6 @@
 {
   "name": "prune-node-modules",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A CLI tool to prune node_modules.",
   "main": "dist/core.js",
   "types": "dist/core.d.ts",
