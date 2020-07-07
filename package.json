@@ -46,7 +46,7 @@
     "minimatch": "3",
     "minimist": "1",
     "rimraf": "3",
-    "tslib": "2"
+    "tslib": "1 || 2"
   },
   "bin": {
     "prune-node-modules": "bin/prune-node-modules"
