@@ -51,5 +51,8 @@
   },
   "bin": {
     "prune-node-modules": "bin/prune-node-modules"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
