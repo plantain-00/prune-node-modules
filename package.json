@@ -21,7 +21,7 @@
     "url": "https://github.com/plantain-00/prune-node-modules/issues"
   },
   "typeCoverage": {
-    "atLeast": 98.06
+    "atLeast": 98.44
   },
   "homepage": "https://github.com/plantain-00/prune-node-modules#readme",
   "devDependencies": {

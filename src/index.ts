@@ -218,7 +218,7 @@ async function executeCommandLine() {
     if (configData.whitelist) {
       whitelist = configData.whitelist.map(w => path.resolve(target, w))
     }
-  } catch (error) {
+  } catch {
     // do nothing
   }
 
