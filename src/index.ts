@@ -190,7 +190,7 @@ async function executeCommandLine() {
   if (argv._.length !== 1) {
     throw new Error('need one target path')
   }
-  const target = path.resolve(process.cwd(), argv._[0])
+  const target = path.resolve(process.cwd(), argv._[0]!)
 
   try {
     let configFilePath: string
@@ -227,7 +227,7 @@ async function executeCommandLine() {
 
 executeCommandLine().then(() => {
   console.log('prune-node-modules success.')
-}, error => {
+}, (error: unknown) => {
   if (error instanceof Error) {
     console.log(error.message)
   } else {
